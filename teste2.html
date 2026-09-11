@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte Indígena | Memória Viva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #120E0C;
+            --bg-card: #1C1613;
+            --accent: #E25822;
+            --accent-gold: #D4AF37;
+            --text-light: #F4EBE1;
+            --text-muted: #A89F91;
+            --border: #2A211D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+        }
+
+        /* Hero Section de Alto Impacto */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(18,14,12,0.4) 0%, var(--bg-dark) 100%), 
+                        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200') center/cover no-repeat;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero span {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--text-light);
+            max-width: 800px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            font-size: 1.1rem;
+        }
+
+        /* Layout Grid */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .grid-artes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .card-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <span>Exposição ETEC Portas Abertas</span>
+        <h1>A Memória Viva na Arte Indígena</h1>
+        <p>Mais do que estética: uma expressão sagrada de identidade, ancestralidade e resistência visual.</p>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Manifestações Culturais</h2>
+        
+        <div class="grid-artes">
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600" alt="Pintura Corporal" class="card-img">
+                <div class="card-content">
+                    <h3>Pintura & Grafismo</h3>
+                    <p>Padrões geométricos feitos com urucum e genipapo que comunicam identidade, rituais e o papel social dentro da comunidade.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?q=80&w=600" alt="Cerâmica Indígena" class="card-img">
+                <div class="card-content">
+                    <h3>Cerâmica & Escultura</h3>
+                    <p>Tradições milenares como a arte Marajoara, unindo utilidade doméstica, rituais funerários e sofisticação simétrica.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1569172122301-bc5008bc09c5?q=80&w=600" alt="Arte Plumária" class="card-img">
+                <div class="card-content">
+                    <h3>Arte Plumária</h3>
+                    <p>A combinação precisa de plumagens naturais em adereços e cocares, reservada para rituais e celebrações sagradas.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>Projeto Desenvolvido para o Portas Abertas — ETEC</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes Vivas — Arte dos Povos Originários</title>
+    <style>
+        :root {
+            --cream: #f3efe6;
+            --cream-2: #ece5d8;
+            --ink: #2a2118;
+            --ink-soft: #5c5248;
+            --brown-dark: #2b1f17;
+            --terracotta: #b04a2f;
+            --terracotta-soft: #c25a3c;
+            --olive: #4c5a3e;
+            --line: rgba(42, 33, 24, 0.12);
+            --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+            --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ---------- HEADER ---------- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--cream);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-wrap {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--brown-dark);
+            letter-spacing: 0.2px;
+        }
+
+        .logo em {
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        nav.links {
+            display: flex;
+            gap: 36px;
+            font-size: 15px;
+            color: var(--ink-soft);
+        }
+
+        nav.links a {
+            transition: color .2s ease;
+        }
+
+        nav.links a:hover {
+            color: var(--terracotta);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 22px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--brown-dark);
+            color: #f3efe6;
+        }
+
+        .btn-primary:hover {
+            background: #1c140d;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            padding: 90px 0 70px;
+            background-image:
+                linear-gradient(var(--cream), var(--cream)),
+                repeating-linear-gradient(45deg, rgba(42, 33, 24, 0.035) 0, rgba(42, 33, 24, 0.035) 1px, transparent 1px, transparent 18px);
+            background-blend-mode: normal;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            color: var(--terracotta);
+            margin-bottom: 22px;
+        }
+
+        .eyebrow .dash {
+            width: 22px;
+            height: 1px;
+            background: var(--terracotta);
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 58px;
+            line-height: 1.1;
+            color: var(--brown-dark);
+            font-weight: 500;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p.lead {
+            font-size: 16.5px;
+            color: var(--ink-soft);
+            max-width: 480px;
+            margin-bottom: 34px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            margin-bottom: 46px;
+        }
+
+        .btn-terracotta {
+            background: var(--terracotta);
+            color: #fff;
+            padding: 13px 26px;
+        }
+
+        .btn-terracotta:hover {
+            background: var(--terracotta-soft);
+        }
+
+        .link-underline {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--ink);
+            border-bottom: 1px solid var(--ink);
+            padding-bottom: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 48px;
+            padding-top: 30px;
+            border-top: 1px solid var(--line);
+            max-width: 520px;
+        }
+
+        .stat .num {
+            font-family: var(--serif);
+            font-size: 30px;
+            color: var(--brown-dark);
+            font-weight: 600;
+        }
+
+        .stat .label {
+            font-size: 13px;
+            color: var(--ink-soft);
+            margin-top: 2px;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #dcd4c5;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+        }
+
+        .hero-image .caption {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            background: var(--terracotta);
+            color: #fff;
+            font-size: 12.5px;
+            font-weight: 500;
+            padding: 7px 14px;
+            border-radius: 3px;
+        }
+
+        /* ---------- GALERIA ---------- */
+        section {
+            padding: 100px 0;
+        }
+
+        .gallery-section {
+            background: var(--cream);
+            border-top: 1px solid var(--line);
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 56px;
+        }
+
+        .section-head h2 {
+            font-family: var(--serif);
+            font-size: 44px;
+            color: var(--brown-dark);
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .section-head p {
+            color: var(--ink-soft);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .card {
+            background: var(--cream-2);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card .thumb {
+            position: relative;
+            height: 220px;
+            background: #dcd4c5;
+        }
+
+        .card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-size: 11.5px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 4px;
+            color: #fff;
+            z-index: 2;
+        }
+
+        .tag.ceramica {
+            background: var(--terracotta);
+        }
+
+        .tag.tecelagem {
+            background: var(--brown-dark);
+        }
+
+        .tag.escultura {
+            background: var(--olive);
+        }
+
+        .card .info {
+            padding: 22px 22px 26px;
+        }
+
+        .card .info h3 {
+            font-family: var(--serif);
+            font-size: 19px;
+            color: var(--brown-dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card .info .povo {
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: var(--terracotta);
+            margin-bottom: 2px;
+        }
+
+        .card .info .local {
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            margin-bottom: 14px;
+        }
+
+        .card .info p.desc {
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            line-height: 1.65;
+        }
+
+        .card.image-only .thumb {
+            height: 100%;
+            min-height: 420px;
+        }
+
+        .card.image-only {
+            grid-row: span 2;
+        }
+
+        /* ---------- CONTEXTO ---------- */
+        .context-section {
+            background: var(--cream-2);
+            background-image: repeating-linear-gradient(90deg, rgba(42, 33, 24, 0.05) 0, rgba(42, 33, 24, 0.05) 1px, transparent 1px, transparent 26px);
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .context-grid h2 {
+            font-family: var(--serif);
+            font-size: 38px;
+            color: var(--brown-dark);
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+
+        .context-grid h2 em {
+            font-style: italic;
+            color: var(--terracotta);
+        }
+
+        .context-grid p {
+            color: var(--ink-soft);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .context-image {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #dcd4c5;
+        }
+
+        .context-image img {
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+        }
+
+        .quote-card {
+            position: absolute;
+            right: -20px;
+            bottom: 30px;
+            background: var(--cream);
+            padding: 20px 22px;
+            max-width: 250px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .quote-card p {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--brown-dark);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .quote-card span {
+            font-size: 12px;
+            color: var(--ink-soft);
+        }
+
+        /* ---------- POVOS ---------- */
+        .povos-section {
+            background: var(--cream);
+        }
+
+        .povos-eyebrow {
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--terracotta);
+            margin-bottom: 12px;
+        }
+
+        .povos-section h2 {
+            font-family: var(--serif);
+            font-size: 38px;
+            color: var(--brown-dark);
+            font-weight: 500;
+            margin-bottom: 44px;
+        }
+
+        .povos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .povo-card {
+            background: var(--cream-2);
+            border-radius: 6px;
+            padding: 28px 24px;
+        }
+
+        .povo-card h3 {
+            font-family: var(--serif);
+            font-size: 21px;
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .povo-card .regiao {
+            font-size: 13px;
+            color: var(--ink-soft);
+            margin-bottom: 4px;
+        }
+
+        .povo-card .uf {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: var(--brown-dark);
+            color: #ddd2c4;
+            padding: 70px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-family: var(--serif);
+            font-size: 24px;
+            color: #f3efe6;
+            margin-bottom: 18px;
+        }
+
+        .footer-logo em {
+            font-style: italic;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #bfb2a0;
+            max-width: 320px;
+            margin-bottom: 24px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            color: #8f8375;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 980px) {
+            nav.links {
+                display: none;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section-head {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card.image-only {
+                grid-row: auto;
+            }
+
+            .context-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .context-image img {
+                height: 380px;
+            }
+
+            .quote-card {
+                position: static;
+                margin-top: 20px;
+                max-width: 100%;
+            }
+
+            .povos-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 22px;
+            }
+
+            .nav-wrap {
+                padding: 16px 22px;
+            }
+
+            .hero {
+                padding: 50px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .stats {
+                flex-wrap: wrap;
+                gap: 28px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .povos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-head h2 {
+                font-size: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 14px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-wrap">
+            <div class="logo">Raízes <em>Vivas</em></div>
+            <nav class="links">
+                <a href="#galeria">Galeria</a>
+                <a href="#contexto">Contexto</a>
+                <a href="#povos">Povos</a>
+                <a href="#sobre">Sobre</a>
+            </nav>
+            <div class="nav-right">
+                <a href="#galeria" class="btn btn-primary">Explorar obras</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="eyebrow"><span class="dash"></span> ARTE DOS POVOS ORIGINÁRIOS</div>
+                    <h1>A memória<br>vive nas mãos<br>que criam.</h1>
+                    <p class="lead">Uma exposição permanente de obras, artefatos e narrativas de mais de 30 povos
+                        indígenas do Brasil — produzidas por artistas e artesãs que mantêm vivas tradições milenares.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#galeria" class="btn btn-terracotta">Explorar a galeria</a>
+                        <a href="#sobre" class="link-underline">Sobre o projeto →</a>
+                    </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="num">30+</div>
+                            <div class="label">Povos representados</div>
+                        </div>
+                        <div class="stat">
+                            <div class="num">280</div>
+                            <div class="label">Obras catalogadas</div>
+                        </div>
+                        <div class="stat">
+                            <div class="num">14</div>
+                            <div class="label">Estados brasileiros</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- TROQUE 'hero.jpg' PELO NOME DA SUA IMAGEM PRINCIPAL -->
+                    <img src="hero.jpg" alt="Imagem Principal do Projeto">
+                    <div class="caption">Projeto de Artes · ETEC Portas Abertas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="gallery-section" id="galeria">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow"><span class="dash"></span> GALERIA & MANIFESTO</div>
+                    <h2>Cada peça<br>é uma palavra.</h2>
+                </div>
+                <p>Obras selecionadas que narram cosmologias, territórios e resistências. Arte como língua viva, não
+                    como relíquia.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="card image-only">
+                    <div class="thumb">
+                        <span class="tag ceramica">Destaque</span>
+                        <!-- TROQUE 'arte1.jpg' PELO NOME DA SUA FOTO DE DESTAQUE VERTICAL -->
+                        <img src="arte1.jpg" alt="Arte em destaque">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="thumb">
+                        <span class="tag tecelagem">Tecelagem</span>
+                        <!-- TROQUE 'arte2.jpg' PELO NOME DA SUA FOTO -->
+                        <img src="arte2.jpg" alt="Obra de tecelagem">
+                    </div>
+                    <div class="info">
+                        <h3>Kene — Padrão da Floresta</h3>
+                        <div class="povo">POVO HUNI KUĨ (KAXINAWÁ)</div>
+                        <div class="local">Alto Juruá, Acre</div>
+                        <p class="desc">Tecido em algodão nativo com padrão kene, linguagem visual própria que mapeia
+                            relações entre humanos, animais e espíritos da floresta.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="thumb">
+                        <span class="tag escultura">Escultura</span>
+                        <!-- TROQUE 'arte3.jpg' PELO NOME DA SUA FOTO -->
+                        <img src="arte3.jpg" alt="Obra de escultura">
+                    </div>
+                    <div class="info">
+                        <h3>Karuana — Espíritos da Água</h3>
+                        <div class="povo">POVO WAURÁ</div>
+                        <div class="local">Alto Xingu, Mato Grosso</div>
+                        <p class="desc">Máscara cerimonial esculpida em madeira leve da floresta, usada em rituais de
+                            cura. Representa entidades do mundo aquático na cosmologia Arawak.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="thumb">
+                        <span class="tag escultura">Cerâmica</span>
+                        <!-- TROQUE 'arte4.jpg' PELO NOME DA SUA FOTO -->
+                        <img src="arte4.jpg" alt="Obra de cerâmica">
+                    </div>
+                    <div class="card">
+                        <div class="thumb">
+                            <span class="tag ceramica">Sua Tag</span>
+                            <img src="arte5.jpg" alt="Descrição da imagem para acessibilidade">
+                        </div>
+                        <div class="info">
+                            <h3>Título da Sua Obra</h3>
+                            <div class="povo">NOME DO POVO</div>
+                            <div class="local">Região, Estado</div>
+                            <p class="desc">Descrição curta sobre o significado cultural ou o material utilizado na
+                                peça.</p>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <h3>Boto — Narrativa Oral em Barro</h3>
+                        <div class="povo">POVO MARAJOARA</div>
+                        <div class="local">Ilha de Marajó, Pará</div>
+                        <p class="desc">Peça modelada à mão que reinterpreta a lenda do boto-cor-de-rosa, transmitida
+                            oralmente entre gerações de ceramistas ribeirinhas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTEXTO -->
+    <section class="context-section" id="contexto">
+        <div class="container">
+            <div class="context-grid">
+                <div>
+                    <div class="eyebrow"><span class="dash"></span> CONTEXTO CULTURAL</div>
+                    <h2>Arte indígena não é passado —<br><em>é presente e futuro.</em></h2>
+                    <p>O Brasil abriga mais de 300 povos indígenas, falantes de cerca de 274 línguas. Cada povo carrega
+                        sistemas simbólicos únicos expressos na cerâmica, cestaria, plumária, tecelagem e escultura —
+                        práticas que resistiram a séculos de colonização e continuam vivas, criativas e em
+                        transformação.</p>
+
+                    <div class="context-stats">
+                        <div class="context-stat">
+                            <span class="num">274</span>
+                            <span class="txt">línguas indígenas faladas atualmente no Brasil</span>
+                        </div>
+                        <div class="context-stat">
+                            <span class="num">300+</span>
+                            <span class="txt">povos com culturas materiais vivas e ativas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="context-image">
+                    <!-- TROQUE 'contexto.jpg' PELO NOME DA SUA FOTO -->
+                    <img src="contexto.jpg" alt="Imagem de contexto cultural">
+                    <div class="quote-card">
+                        <p>"Tecer é contar histórias que nenhuma palavra consegue dizer."</p>
+                        <span>— Artesã Huni Kuĩ, Acre</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POVOS -->
+    <section class="povos-section" id="povos">
+        <div class="container">
+            <div class="povos-eyebrow">POVOS EM DESTAQUE</div>
+            <h2>Vozes plurais.</h2>
+
+            <div class="povos-grid">
+                <div class="povo-card">
+                    <h3>Yanomami</h3>
+                    <div class="regiao">Amazônia</div>
+                    <div class="uf">AM / RR</div>
+                </div>
+                <div class="povo-card">
+                    <h3>Huni Kuĩ</h3>
+                    <div class="regiao">Amazônia</div>
+                    <div class="uf">AC</div>
+                </div>
+                <div class="povo-card">
+                    <h3>Waurá</h3>
+                    <div class="regiao">Cerrado / Xingu</div>
+                    <div class="uf">MT</div>
+                </div>
+                <div class="povo-card">
+                    <h3>Guarani Mbya</h3>
+                    <div class="regiao">Mata Atlântica</div>
+                    <div class="uf">SP / RJ / RS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="sobre">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>© 2026 Raízes Vivas · Projeto Escolar ETEC Portas Abertas</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
