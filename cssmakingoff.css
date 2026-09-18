@@ -1,0 +1,128 @@
+/* ---------- MAKING OF ---------- */
+.making-of-section {
+    padding: 90px 0;
+    background-color: var(--cream);
+    border-top: 1px solid var(--line);
+}
+
+.section-header {
+    margin-bottom: 60px;
+    text-align: left;
+}
+
+.section-header h2 {
+    font-family: var(--serif);
+    font-size: 42px;
+    color: var(--brown-dark);
+    font-weight: 500;
+}
+
+.section-header .lead {
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+}
+
+/* Grid e Cards */
+.making-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.making-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    background: var(--cream-2);
+    border-radius: 8px;
+    padding: 36px;
+    border: 1px solid var(--line);
+}
+
+.making-card.reverse {
+    direction: rtl;
+}
+
+.making-card.reverse .card-content {
+    direction: ltr;
+}
+
+.step-number {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--terracotta);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.card-content h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--brown-dark);
+    margin-bottom: 12px;
+}
+
+.card-content p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+}
+
+.card-media {
+    border-radius: 6px;
+    overflow: hidden;
+    height: 260px;
+    background: #dcd4c5;
+}
+
+.card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Agradecimentos Integrados */
+.thanks-box {
+    margin-top: 60px;
+    padding: 32px;
+    background: var(--brown-dark);
+    color: #F4F1EA;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.thanks-box h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--terracotta-soft);
+    margin-bottom: 8px;
+}
+
+.thanks-box p {
+    font-size: 14px;
+    color: #bfb2a0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ---------- RESPONSIVIDADE MOBILE ---------- */
+@media (max-width: 768px) {
+    .making-card, 
+    .making-card.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .section-header h2 {
+        font-size: 30px;
+    }
+
+    .card-media {
+        height: 200px;
+    }
+}
