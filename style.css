@@ -1,13 +1,27 @@
 :root {
-    --cream: #f3efe6;
-    --cream-2: #ece5d8;
-    --ink: #2a2118;
-    --ink-soft: #5c5248;
-    --brown-dark: #2b1f17;
-    --terracotta: #b04a2f;
-    --terracotta-soft: #c25a3c;
-    --olive: #4c5a3e;
-    --line: rgba(42, 33, 24, 0.12);
+    /* Fundo geral artesanal */
+    --cream: #E8E2D5;
+    --cream-2: #DDD6C7;
+    
+    /* Textos e Grafismos do tema claro */
+    --ink: #1A1A1A;
+    --ink-soft: #4A443E;
+    --brown-dark: #121212;
+    
+    /* Cores do Tema Escuro da Galeria */
+    --bg-dark: #121212;
+    --card-dark: #1E1E1E;
+    --text-dark-primary: #F4F1EA;
+    --text-dark-secondary: #B5AEA4;
+    
+    /* Destaques e Linhas */
+    --terracotta: #8C3A27;
+    --terracotta-soft: #A64B35;
+    --olive: #3D3228;
+    --line: rgba(26, 26, 26, 0.15);
+    --line-dark: rgba(244, 241, 234, 0.12);
+    
+    /* Tipografia */
     --serif: "Playfair Display", Georgia, "Times New Roman", serif;
     --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
@@ -32,7 +46,8 @@ body {
 
 img {
     display: block;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
 }
 
 a {
@@ -46,7 +61,7 @@ a {
     padding: 0 40px;
 }
 
-/* ---------- HEADER ---------- */
+/* ---------- HEADER (DESKTOP) ---------- */
 header {
     position: sticky;
     top: 0;
@@ -62,15 +77,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    border: none;
 }
 
 .logo {
     font-family: var(--serif);
-    font-size: 22px;
+    font-size: 30px;
     color: var(--terracotta);
     letter-spacing: 0.2px;
 }
@@ -121,13 +132,12 @@ nav.links a:hover {
     background: #3d4930;
 }
 
-/* ---------- HERO ---------- */
+/* ---------- HERO (DESKTOP) ---------- */
 .hero {
     padding: 90px 0 70px;
     background-image:
         linear-gradient(var(--cream), var(--cream)),
         repeating-linear-gradient(45deg, rgba(42, 33, 24, 0.035) 0, rgba(42, 33, 24, 0.035) 1px, transparent 1px, transparent 18px);
-    background-blend-mode: normal;
 }
 
 .hero-grid {
@@ -247,14 +257,14 @@ nav.links a:hover {
     border-radius: 3px;
 }
 
-/* ---------- GALERIA ---------- */
+/* ---------- GALERIA (DESKTOP) ---------- */
 section {
     padding: 100px 0;
 }
 
 .gallery-section {
-    background: var(--cream);
-    border-top: 1px solid var(--line);
+    background-color: #0d0d0d;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .section-head {
@@ -265,16 +275,16 @@ section {
     margin-bottom: 56px;
 }
 
-.section-head h2 {
+.gallery-section .section-head h2 {
     font-family: var(--serif);
     font-size: 44px;
-    color: var(--brown-dark);
+    color: #F4F1EA;
     font-weight: 500;
     line-height: 1.2;
 }
 
-.section-head p {
-    color: var(--ink-soft);
+.gallery-section .section-head p {
+    color: #B5AEA4;
     font-size: 15px;
     line-height: 1.7;
 }
@@ -285,10 +295,11 @@ section {
     gap: 28px;
 }
 
-.card {
-    background: var(--cream-2);
+.gallery-section .card {
+    background-color: var(--cream-2);
     border-radius: 6px;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
 }
@@ -317,51 +328,43 @@ section {
     z-index: 2;
 }
 
-.tag.ceramica {
-    background: var(--terracotta);
+.tag.ceramica { background: var(--terracotta); }
+.tag.tecelagem { background: var(--brown-dark); }
+.tag.escultura { background: var(--olive); }
+
+.gallery-section .card .info,
+.gallery-section .card .card-info {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.tag.tecelagem {
-    background: var(--brown-dark);
-}
-
-.tag.escultura {
-    background: var(--olive);
-}
-
-.card .info {
-    padding: 22px 22px 26px;
-}
-
-.card .info h3 {
+.gallery-section .card h3 {
     font-family: var(--serif);
     font-size: 19px;
     color: var(--brown-dark);
     font-weight: 600;
-    margin-bottom: 8px;
 }
 
-.card .info .povo {
+.gallery-section .card .povo {
     font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.6px;
     color: var(--terracotta);
-    margin-bottom: 2px;
 }
 
-.card .info .local {
+.gallery-section .card .local {
     font-size: 12.5px;
     color: var(--ink-soft);
-    margin-bottom: 14px;
 }
 
-.card .info p.desc {
+.gallery-section .card p.desc {
     font-size: 13.5px;
     color: var(--ink-soft);
     line-height: 1.65;
 }
 
-/* Card 1 — Igarapé: ocupa 2 linhas, imagem alta */
 .card-tall {
     grid-row: span 2;
 }
@@ -371,23 +374,28 @@ section {
     min-height: 420px;
 }
 
-/* Card 4 — Boto: ocupa 2 colunas, layout horizontal */
-.card-wide {
+/* Card Wide (Desktop) */
+.gallery-section .card-wide {
     grid-column: span 2;
+    display: flex;
     flex-direction: row;
+    align-items: stretch;
 }
 
-.card-wide .thumb {
+.gallery-section .card-wide .thumb {
     width: 50%;
     height: auto;
+    min-height: 100%;
     flex-shrink: 0;
 }
 
-.card-wide .info {
+.gallery-section .card-wide .info,
+.gallery-section .card-wide .card-info {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 32px;
 }
 
 .link-obra {
@@ -400,11 +408,7 @@ section {
     font-size: 13.5px;
 }
 
-.link-obra:hover {
-    color: var(--terracotta-soft);
-}
-
-/* ---------- CONTEXTO ---------- */
+/* ---------- CONTEXTO CULTURAL (DESKTOP) ---------- */
 .context-section {
     background: var(--cream-2);
     background-image: repeating-linear-gradient(90deg, rgba(42, 33, 24, 0.05) 0, rgba(42, 33, 24, 0.05) 1px, transparent 1px, transparent 26px);
@@ -476,7 +480,7 @@ section {
     color: var(--ink-soft);
 }
 
-/* ---------- POVOS ---------- */
+/* ---------- POVOS (DESKTOP) ---------- */
 .povos-section {
     background: var(--cream);
 }
@@ -529,7 +533,7 @@ section {
     color: var(--brown-dark);
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- FOOTER (DESKTOP) ---------- */
 footer {
     background: var(--brown-dark);
     color: #ddd2c4;
@@ -550,9 +554,7 @@ footer {
     margin-bottom: 18px;
 }
 
-.footer-logo em {
-    font-style: italic;
-}
+.footer-logo em { font-style: italic; }
 
 .footer-desc {
     font-size: 14px;
@@ -572,116 +574,170 @@ footer {
     color: #8f8375;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 980px) {
-    nav.links {
+/* ==========================================================================
+   ---------- REGRAS UNIFICADAS PARA MOBILE (MAX-WIDTH: 768PX) ----------
+   ========================================================================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    /* 1. Header & Nav Mobile */
+    .nav-wrap {
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .nav-right {
         display: none;
     }
 
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    nav.links {
+        display: flex;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 18px;
+        padding-bottom: 4px;
     }
 
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .section-head {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .card-tall {
-        grid-row: auto;
-    }
-
-    .card-wide {
-        grid-column: span 2;
-    }
-
-    .context-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .context-image img {
-        height: 380px;
-    }
-
-    .quote-card {
-        position: static;
-        margin-top: 20px;
-        max-width: 100%;
-    }
-
-    .povos-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-    }
-}
-
-@media (max-width: 600px) {
-    .container {
-        padding: 0 22px;
-    }
-
-    .nav-wrap {
-        padding: 16px 22px;
-    }
-
+    /* 2. Hero Section Mobile */
     .hero {
-        padding: 50px 0 40px;
+        padding: 40px 0;
+    }
+
+    .hero-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .hero p.lead {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    .hero-cta {
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
     }
 
     .stats {
-        flex-wrap: wrap;
-        gap: 28px;
+        gap: 24px;
+        max-width: 100%;
+    }
+
+    .stat .num {
+        font-size: 24px;
+    }
+
+    .hero-image {
+        display: block;
+        width: 100%;
+    }
+
+    .hero-image img {
+        height: 320px;
+        object-fit: cover;
+    }
+
+    /* 3. Galeria Mobile */
+    .section-head {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .gallery-section .section-head h2 {
+        font-size: 32px;
     }
 
     .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .card-wide {
+    .card-tall {
+        grid-row: span 1;
+    }
+
+    .card-tall .thumb {
+        height: 220px;
+        min-height: auto;
+    }
+
+    .gallery-section .card-wide {
         grid-column: span 1;
         flex-direction: column;
     }
 
-    .card-wide .thumb,
-    .card-wide .info {
+    .gallery-section .card-wide .thumb,
+    .gallery-section .card-wide .info,
+    .gallery-section .card-wide .card-info {
         width: 100%;
     }
 
-    .card-wide .thumb {
+    .gallery-section .card-wide .thumb {
         height: 220px;
+        min-height: 220px;
     }
 
+    .gallery-section .card-wide .info,
+    .gallery-section .card-wide .card-info {
+        padding: 20px;
+    }
+
+    /* 4. Contexto Cultural Mobile */
+    .context-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .context-grid h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .context-image img {
+        height: 320px;
+    }
+
+    .quote-card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        max-width: 100%;
+        margin-top: 16px;
+        box-shadow: none;
+        border-left: 3px solid var(--terracotta);
+    }
+
+    /* 5. Povos & Footer Mobile */
     .povos-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
-    section {
-        padding: 60px 0;
-    }
-
-    .section-head h2 {
-        font-size: 32px;
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
 
     .footer-bottom {
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
         align-items: flex-start;
     }
 }
