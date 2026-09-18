@@ -1,8 +1,7 @@
-/* ---------- MAKING OF ---------- */
 .making-of-section {
     padding: 90px 0;
-    background-color: var(--cream);
-    border-top: 1px solid var(--line);
+    background-color: #F4F1EA; /* Força o fundo creme ignorando variáveis falhadas */
+    border-top: 1px solid #dcd4c5;
 }
 
 .section-header {
@@ -11,11 +10,15 @@
 }
 
 .section-header h2 {
-    font-family: var(--serif);
-    font-size: 42px;
-    color: var(--brown-dark);
-    font-weight: 500;
+    font-family: serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #3A2B24; /* Força o marrom escuro no título para dar contraste */
+    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -1px;
 }
+
 
 .section-header .lead {
     font-size: 16px;
