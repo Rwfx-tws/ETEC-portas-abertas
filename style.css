@@ -481,6 +481,28 @@ section {
 }
 
 /* ---------- POVOS (DESKTOP) ---------- */
+/* o texto fica à esquerda e a imagem à direita */
+.povo-card .card-header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Separa o texto e a imagem para as pontas */
+    flex-direction: row-reverse;    /* Joga o primeiro elemento (imagem) para a direita */
+    gap: 15px;
+}
+
+/* Cor de fundo provisória (vermelho claro/rosa) e borda para você enxergar o container da imagem */
+.povo-card .povo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 6px;
+    flex-shrink: 0;
+    
+    /* Mude esta cor depois que posicionar a imagem definitiva */
+    background-color: var(--olive); 
+    border:none; 
+    color: white;
+}
 .povos-section {
     background: var(--cream);
 }
