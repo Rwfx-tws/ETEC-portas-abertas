@@ -1,7 +1,10 @@
+:root{
+
+}
+
 .making-of-section {
-    padding: 90px 0;
-    background-color: #F4F1EA; /* Força o fundo creme ignorando variáveis falhadas */
-    border-top: 1px solid #dcd4c5;
+    padding: 40px 0 90px 0; 
+    background-color: #E8E2D5;
 }
 
 .section-header {
@@ -130,6 +133,7 @@
     }
 }
 /* ---------- GALERIA DE FOTOS DO MAKING OF ---------- */
+
 .gallery-making-of {
     margin-top: 60px;
     margin-bottom: 60px;
@@ -152,12 +156,20 @@
     color: var(--ink-soft);
 }
 
+.container-imagem img {
+    max-width: 100%; /* A imagem nunca será maior que o ecrã/caixa onde está */
+    height: auto;    /* A altura ajusta-se automaticamente para manter a proporção */
+    display: block;  /* Remove espaços estranhos abaixo da imagem */
+    margin-bottom: 20px; /* Espaçamento entre as imagens */
+}
+
 /* Grid das Fotos */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
+
 
 /* Box com Fundo Indicativo de Imagem */
 .photo-placeholder {
