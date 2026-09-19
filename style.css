@@ -557,9 +557,12 @@ section {
 
 /* ---------- FOOTER (DESKTOP) ---------- */
 footer {
+    width: 100%;
     background: var(--brown-dark);
     color: #ddd2c4;
-    padding: 70px 0 0;
+    padding: 70px 20px 0 20px;
+    margin-top: 80px; /* <--- */
+    box-sizing: border-box;
 }
 
 .footer-grid {
@@ -627,11 +630,11 @@ footer {
 }
 
 /* Garante que o parágrafo descritivo não fique com limite de largura desalinhado */
-.footer-desc {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
+    .footer-desc {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 /* ==========================================================================
    ---------- REGRAS UNIFICADAS PARA MOBILE (MAX-WIDTH: 768PX) ----------
@@ -781,22 +784,5 @@ footer {
         margin-top: 16px;
         box-shadow: none;
         border-left: 3px solid var(--terracotta);
-    }
-
-    /* 5. Povos & Footer Mobile */
-    .povos-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 12px;
-        align-items: flex-start;
     }
 }
