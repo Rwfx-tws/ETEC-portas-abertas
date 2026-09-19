@@ -596,6 +596,43 @@ footer {
     color: #8f8375;
 }
 
+/* Estilo do botão para o Making Off no rodapé */
+.btn-makingoff {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--terracotta);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.btn-makingoff:hover {
+    background-color: var(--terracotta-soft);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Centraliza o conteúdo da coluna do rodapé */
+.footer-grid > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente o título, o texto e o botão */
+    text-align: center;   /* Centraliza o alinhamento das linhas de texto */
+}
+
+/* Garante que o parágrafo descritivo não fique com limite de largura desalinhado */
+.footer-desc {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* ==========================================================================
    ---------- REGRAS UNIFICADAS PARA MOBILE (MAX-WIDTH: 768PX) ----------
    ========================================================================== */
