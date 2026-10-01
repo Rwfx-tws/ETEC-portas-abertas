@@ -251,6 +251,7 @@ footer {
     height: 100%;
     object-fit: cover;
     display: block;
+    object-position: top;
 }
 
 /* Fundo Visível quando a imagem não carrega/ainda não existe */
